@@ -2,13 +2,10 @@
 import { SyntheticEvent, useState } from "react";
 import { TaskI } from "../../interfaces/task-i";
 
-export function Add() {
+export function Add({ addTask }: { addTask: (task: TaskI) => void }) {
   // const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
-  const addTask = (newTask: any) => {
-    // dispatch(createTask(newTask));
-    console.log(newTask);
-  };
+
   const [newTask, setNewTask] = useState<TaskI>({
     title: "",
     responsible: "",
@@ -17,7 +14,6 @@ export function Add() {
 
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
-    console.log("Added task", newTask);
     addTask({ ...newTask });
     setNewTask({ title: "", responsible: "", isCompleted: false });
   };

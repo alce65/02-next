@@ -1,18 +1,15 @@
 import Link from "next/link";
 import { TaskI } from "../../interfaces/task-i";
 
-export function Task({ task }: { task: any }) {
+interface PropsI {
+  task: any;
+  deleteTask: (task: TaskI) => void;
+  toggleTask: (task: TaskI) => void;
+}
+
+export function Task({ task, deleteTask, toggleTask }: PropsI) {
   // const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
-
-  const deleteTask = (task: any) => {
-    console.log(task);
-    // dispatch(removeTask(task, user.token));
-  };
-  const toggleTask = (task: any) => {
-    console.log(task);
-    // dispatch(updateTask(task, user.token));
-  };
 
   function handleClick() {
     deleteTask(task);
@@ -33,8 +30,9 @@ export function Task({ task }: { task: any }) {
         <a>
           <span className={task.isCompleted ? "task-completed" : ""}>
             {task.title}
-          </span>{" "}
-          -<span>{task.responsible.name}</span>
+          </span>
+          {" - "}
+          <span>{task.responsible}</span>
         </a>
       </Link>
 
