@@ -1,6 +1,6 @@
 import header from "./header.module.css";
 
-export function Header({ children }: any) {
+export function Header({ children }: { children: JSX.Element }) {
   return (
     <header>
       {children}
