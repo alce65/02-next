@@ -3,15 +3,15 @@ import { TaskI, PartialTaskI } from '../interfaces/task-i';
 
 const tasksUrl: string = process.env.NEXT_PUBLIC_URLTASK as string;
 
-export const getAllTasks = (): Promise<AxiosResponse> => {
+export const getAllTasks = (): Promise<AxiosResponse<Array<TaskI>>> => {
   return axios.get<Array<TaskI>>(tasksUrl);
 };
 
-export const getTask = (id: string): Promise<AxiosResponse> => {
+export const getTask = (id: string): Promise<AxiosResponse<TaskI>> => {
   return axios.get<TaskI>(tasksUrl + id);
 };
 
-export const addTask = (task: TaskI): Promise<AxiosResponse> => {
+export const addTask = (task: TaskI): Promise<AxiosResponse<TaskI>> => {
   return axios.post<TaskI>(tasksUrl, task);
 };
 
