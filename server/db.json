@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Create json-server",
       "responsible": "Pepe",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 2,

@@ -17,7 +17,7 @@ export const addTask = (task: TaskI): Promise<AxiosResponse<TaskI>> => {
 
 export const updateTask = (
   partialTask: PartialTaskI
-): Promise<AxiosResponse> => {
+): Promise<AxiosResponse<TaskI>> => {
   return axios.patch<TaskI>(tasksUrl + partialTask.id, partialTask);
 };
 
